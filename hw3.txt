@@ -1,0 +1,15 @@
+Homework 3 Text
+Q1. It was necessary to remove that line because the goto statement in the for
+loop was exiting the loop before setting the proper locale for the
+statement. This left the program in an unresolved state.
+Q2. Yes, this version would cause a problem because it will always print the
+format in the classic Ubuntu English style, which would probably leave
+non-English-speaking users very confused about the state of their locale.
+Q3. An index out of bounds error is raised by invoking this python script on
+/dev/null because the sequence of lines to choose from is empty and we can't
+choose a random line if there are no lines to choose from. 
+Q4. Python3 instead of just python results in a syntax error because Python 3
+doesn't allow iteration over exception parameters. The reason for not allowing
+this is that how it actually works (by iterating over the exception) makes it
+unclear what is actually happening in the code, and Python strives to be
+extremely explicit in all of its commands.

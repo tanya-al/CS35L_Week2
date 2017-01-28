@@ -1,0 +1,22 @@
+CS 35L Week 3 Lab Log
+First, download Coreutils 7.6 by calling wget
+ftp://ftp.gnu.org/gnu/coreutils/coreutils-7.6.tar.gz. Next, run the command tar
+-xzvf coreutils-7.6.tar.gz to untar and unzip the coreutils file. We also have
+to create a new directory to move the fixed version into later, since SeasNet
+won't allow us to make changes to the bin. So, mkdir coreutilsInstall. Now, we
+can open the coreutils-7.6 directory that we installed and run the command
+./configure --prefix=~/coreutilsInstall. This will take care of the install
+section of the makefile so that when we invoke the make and make install
+commands, the program will be compiled with the proper dependencies(so we don't
+have to compile everything everytime) and its executable will be moved to the
+directory we created earlier (coreutilsInstall). Make sure you use the ABSOLUTE
+PATH with the prefix option, otherwise it won't work! 
+The next step is to run the executable and see the effect it has on the ls
+command. To accomplish this, navigate to ~/coreutilsInstall/bin and run the
+command ./ls -l. The result will show dates written in the buggy format. 
+For the next part, I manually looked at the patch and edited the necessary lines
+to implement the patch. Then, I ran the make command again on the coreutils-7.6
+folder to recompile everything and deal with all the changes to ls.c. 
+Finally, I tested the patch on a new file (emacs new_file) and a year old file
+(touch -t 201504100959.30 old_file). Both of these now show the correct date
+format.
